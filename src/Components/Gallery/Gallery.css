@@ -1,0 +1,43 @@
+.gallery-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+h2 {
+  font-size: 2.5rem;
+  color: #8c2730;
+  margin-bottom: 20px;
+}
+
+.gallery {
+  width: 100%;
+  max-width: 1200px;
+  overflow: hidden;
+  margin: 0 auto;
+  position: relative;
+}
+
+.gallery-slider {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.gallery img {
+  width: 25%;
+  height: auto;
+  flex-shrink: 0;
+  padding: 0;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .gallery img {
+    width: 50%;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery img {
+    width: 100%;
+  }
+}

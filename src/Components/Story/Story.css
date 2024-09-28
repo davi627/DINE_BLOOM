@@ -1,0 +1,142 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.story-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+  padding: 40px 20px;
+  box-sizing: border-box;
+  margin-top: -20px;
+}
+
+.heading-wrapper {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 40px;
+}
+
+.story-heading {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  position: relative;
+  display: inline-block;
+}
+
+.underline-long,
+.underline-short {
+  position: absolute;
+  bottom: -10px;
+  background-color: #8c2730;
+}
+
+.underline-long {
+  left: 0;
+  width: 100%;
+  height: 5px;
+}
+
+.underline-short {
+  left: 50%;
+  width: 50%;
+  height: 5px;
+  transform: translateX(-50%);
+}
+
+.story-paragraphs {
+  max-width: 1200px;
+}
+
+.story-paragraphs p {
+  font-size: 1.6rem;
+  line-height: 1.6;
+  margin: 0 0 20px;
+  text-align: center;
+}
+
+@media (max-width: 1024px) {
+  .story-heading {
+    font-size: 2.2rem;
+  }
+
+  .story-paragraphs {
+    max-width: 90%;
+  }
+
+  .story-paragraphs p {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .story-container {
+    padding: 30px 15px;
+  }
+
+  .story-heading {
+    font-size: 2rem;
+  }
+
+  .underline-long,
+  .underline-short {
+    height: 4px;
+  }
+
+  .story-paragraphs p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+}
+
+@media (max-width: 480px) {
+  .story-container {
+    padding: 20px 10px;
+  }
+
+  .heading-wrapper {
+    margin-bottom: 30px;
+  }
+
+  .story-heading {
+    font-size: 1.8rem;
+  }
+
+  .underline-long,
+  .underline-short {
+    height: 3px;
+    bottom: -8px;
+  }
+
+  .story-paragraphs p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: 15px;
+  }
+}
+
+@media (max-height: 600px) and (orientation: landscape) {
+  .story-container {
+    padding: 20px 10px;
+  }
+
+  .heading-wrapper {
+    margin-bottom: 20px;
+  }
+
+  .story-heading {
+    font-size: 1.6rem;
+  }
+
+  .story-paragraphs p {
+    font-size: 0.9rem;
+    line-height: 1.3;
+    margin-bottom: 10px;
+  }
+}

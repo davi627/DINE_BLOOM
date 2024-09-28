@@ -1,0 +1,103 @@
+.topBar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: #8c2730;
+  padding: 10px 30px;
+  list-style: none;
+  height: 100px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.topBar.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.topBar.hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.topBar li {
+  margin-left: 20px;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.topBar li:hover {
+  text-decoration: none;
+}
+
+.topBar li::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 3px;
+  background-color: white;
+  bottom: 0;
+  left: 0;
+  transition: width 0.3s ease;
+}
+
+.topBar li:hover::after {
+  width: 100%;
+}
+
+.add-item {
+  margin-right: auto;
+}
+
+.add-item a {
+  display: flex;
+  align-items: center;
+}
+
+.add-item svg {
+  margin-right: 10px;
+}
+
+@media (max-width: 768px) {
+  .topBar {
+    height: 80px;
+    padding: 10px 20px;
+  }
+
+  .topBar li {
+    font-size: 18px;
+    margin-left: 15px;
+  }
+
+  .add-item svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .topBar {
+    height: 60px;
+    padding: 10px 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .topBar li {
+    font-size: 16px;
+    margin: 5px 10px;
+    padding-bottom: 5px;
+  }
+
+  .topBar li::after {
+    height: 2px;
+  }
+}
