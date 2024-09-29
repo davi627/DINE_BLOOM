@@ -7,6 +7,9 @@ const FastFood = () => {
   const [selectedFood, setSelectedFood] = useState(null);
   const [quantity, setQuantity] = useState(1);
   const [totalPrice, setTotalPrice] = useState(0);
+  const [showMpesaModal, setShowMpesaModal] = useState(false);
+  const [mpesaNumber, setMpesaNumber] = useState('');
+  const [paymentStatus, setPaymentStatus] = useState('');
 
   // Fetch food items from the backend
   useEffect(() => {
@@ -32,6 +35,27 @@ const FastFood = () => {
     const qty = event.target.value;
     setQuantity(qty);
     setTotalPrice(selectedFood.price * qty);
+  };
+
+  const handleCheckout = () => {
+    setShowMpesaModal(true); // Show MPESA modal for number input
+  };
+
+  const handleMpesaSubmit = async () => {
+    try {
+      const response = await axios.post(
+        'http://localhost:3000/mpesa/checkout',
+        {
+          mpesaNumber,
+          amount: totalPrice, // Automatically pick the total price
+        }
+      );
+      setPaymentStatus('Payment initiated. Please check your phone.');
+      setShowMpesaModal(false);
+    } catch (error) {
+      console.error('Error initiating MPESA payment:', error);
+      setPaymentStatus('Payment failed. Try again.');
+    }
   };
 
   return (
@@ -71,14 +95,7 @@ const FastFood = () => {
             </label>
             <p>Total Price: {totalPrice} KES</p>
             <div className="buttons">
-              <button
-                className="checkout-btn"
-                onClick={() =>
-                  alert(
-                    `You ordered ${quantity} ${selectedFood.name} for ${totalPrice} KES`
-                  )
-                }
-              >
+              <button className="checkout-btn" onClick={handleCheckout}>
                 Checkout
               </button>
               <button
@@ -91,6 +108,27 @@ const FastFood = () => {
           </div>
         </div>
       )}
+
+      {showMpesaModal && (
+        <div className="mpesa-modal popup">
+          <div className="modal-content popup-content">
+            <h3>Enter MPESA Number</h3>
+            <p>Total Amount: {totalPrice} KES</p> {/* Display total price */}
+            <input
+              type="text"
+              value={mpesaNumber}
+              onChange={(e) => setMpesaNumber(e.target.value)}
+              placeholder="Enter MPESA number"
+            />
+            <div className="buttons">
+              <button onClick={handleMpesaSubmit}>Submit</button>
+              <button onClick={() => setShowMpesaModal(false)}>Cancel</button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {paymentStatus && <p>{paymentStatus}</p>}
     </div>
   );
 };

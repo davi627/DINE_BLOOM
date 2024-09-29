@@ -9,6 +9,7 @@ import { FoodRouter } from './Routes/AddFood.js'
 import { DrinksRouter } from './Routes/Drinks.js'
 import { FlowerRouter } from './Routes/AddFlowers.js'
 import { DessertsRouter } from './Routes/Dessert.js'
+import mpesaRoutes from './Routes/Mpesa.js';
 
 
 const app=express()
@@ -31,6 +32,7 @@ app.use ('/foods',FoodRouter)
 app.use('/drinks',DrinksRouter)
 app.use('/flowers',FlowerRouter)
 app.use('/desserts',DessertsRouter)
+app.use('/mpesa', mpesaRoutes);
 
 
 mongoose.connect(process.env.MONGO_URI)
