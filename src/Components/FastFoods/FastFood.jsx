@@ -43,15 +43,19 @@ const FastFood = () => {
 
   const handleMpesaSubmit = async () => {
     try {
-      const response = await axios.post(
-        'http://localhost:3000/mpesa/checkout',
-        {
-          mpesaNumber,
-          amount: totalPrice, // Automatically pick the total price
-        }
-      );
-      setPaymentStatus('Payment initiated. Please check your phone.');
-      setShowMpesaModal(false);
+      const response = await axios.post('http://localhost:3000/mpesa/stkpush', {
+        amount: totalPrice, // Automatically pick the total price
+        phoneNumber: mpesaNumber, // Send the mpesaNumber to the backend
+      });
+
+      if (response.data) {
+        setPaymentStatus('Payment initiated. Please check your phone.');
+      } else {
+        setPaymentStatus('Payment failed. Try again.');
+      }
+
+      setShowMpesaModal(false); // Close the modal after submission
+      setMpesaNumber(''); // Reset the mpesa number input
     } catch (error) {
       console.error('Error initiating MPESA payment:', error);
       setPaymentStatus('Payment failed. Try again.');
@@ -113,12 +117,12 @@ const FastFood = () => {
         <div className="mpesa-modal popup">
           <div className="modal-content popup-content">
             <h3>Enter MPESA Number</h3>
-            <p>Total Amount: {totalPrice} KES</p> {/* Display total price */}
+            <p>Total Amount: {totalPrice} KES</p>
             <input
               type="text"
               value={mpesaNumber}
               onChange={(e) => setMpesaNumber(e.target.value)}
-              placeholder="Enter MPESA number"
+              placeholder="e.g 254745404934"
             />
             <div className="buttons">
               <button onClick={handleMpesaSubmit}>Submit</button>

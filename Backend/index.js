@@ -32,7 +32,7 @@ app.use ('/foods',FoodRouter)
 app.use('/drinks',DrinksRouter)
 app.use('/flowers',FlowerRouter)
 app.use('/desserts',DessertsRouter)
-app.use('/mpesa', mpesaRoutes);
+app.use('/mpesa', mpesaRoutes)
 
 
 mongoose.connect(process.env.MONGO_URI)

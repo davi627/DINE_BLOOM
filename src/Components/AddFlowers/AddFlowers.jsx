@@ -24,7 +24,7 @@ const AddFlowers = () => {
     formData.append('name', drinkData.name);
     formData.append('price', drinkData.price);
     formData.append('available', drinkData.available);
-    formData.append('img', file); // Append image file
+    formData.append('img', file);
 
     try {
       await axios.post('http://localhost:3000/flowers/addflowers', formData, {
