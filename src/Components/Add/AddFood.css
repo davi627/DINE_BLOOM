@@ -1,11 +1,30 @@
-/* Top Bar Styling */
 .topbar {
   display: flex;
-  justify-content: space-around;
-  background-color: #333;
+  justify-content: space-between;
+  align-items: center;
+  background-color: brown;
   padding: 10px;
   border-radius: 8px 8px 0 0;
-  margin-bottom: 20px; /* Adds space between topbar and form */
+  margin-bottom: 20px;
+}
+
+.hamburger {
+  cursor: pointer;
+  color: white;
+  font-size: 24px;
+}
+
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  width: 100%;
+  transition: max-height 0.3s ease;
+  overflow: hidden;
+}
+
+.nav-links.open {
+  display: flex;
 }
 
 .nav-link {
@@ -16,13 +35,13 @@
   padding: 10px 20px;
   border-radius: 4px;
   transition: background-color 0.3s ease;
+  margin: 5px;
 }
 
 .nav-link:hover {
   background-color: #555;
 }
 
-/* Container Styling */
 .container {
   max-width: 600px;
   margin: 0 auto;
@@ -33,7 +52,6 @@
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* Form Styling */
 form {
   display: flex;
   flex-direction: column;
@@ -62,7 +80,7 @@ input[type='checkbox'] {
 
 button {
   padding: 12px;
-  background-color: #007bff;
+  background-color: brown;
   color: white;
   font-size: 16px;
   font-weight: bold;
@@ -74,4 +92,40 @@ button {
 
 button:hover {
   background-color: #0056b3;
+}
+
+@media (max-width: 800px) {
+  .nav-link {
+    flex: 1 1 45%;
+    text-align: center;
+  }
+
+  .container {
+    padding: 15px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    max-height: 0;
+    overflow: hidden;
+  }
+
+  .nav-links.open {
+    max-height: 300px; /* Adjust based on number of links */
+  }
+
+  .nav-link {
+    width: 100%; /* Full width for mobile */
+  }
+}
+
+@media (max-width: 500px) {
+  .nav-link {
+    font-size: 14px;
+    padding: 8px 10px;
+  }
+
+  button {
+    font-size: 14px;
+  }
 }

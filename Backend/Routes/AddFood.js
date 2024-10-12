@@ -46,5 +46,28 @@ router.post('/addfood', upload.single('img'), async (req, res) => {
     res.status(500).json({ message: 'Failed to add food item' });
   }
 });
+// Update food availability
+router.put('/foods/:id', async (req, res) => {
+  const { available } = req.body;
+  try {
+    const updatedFood = await Food.findByIdAndUpdate(req.params.id, { available }, { new: true });
+    res.status(200).json(updatedFood);
+  } catch (err) {
+    console.error('Error updating food availability:', err);
+    res.status(500).json({ message: 'Failed to update food availability' });
+  }
+});
+
+// Delete food item
+router.delete('/foods/:id', async (req, res) => {
+  try {
+    await Food.findByIdAndDelete(req.params.id);
+    res.status(200).json({ message: 'Food item deleted successfully' });
+  } catch (err) {
+    console.error('Error deleting food item:', err);
+    res.status(500).json({ message: 'Failed to delete food item' });
+  }
+});
+
 
 export { router as FoodRouter };

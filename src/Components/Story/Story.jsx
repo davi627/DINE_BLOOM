@@ -13,24 +13,30 @@ const Story = () => {
       </div>
       <div className="story-paragraphs">
         <p>
-          We had always dreamed of opening a restaurant, inspired by the family
-          recipes passed down through generations. I spent years working in
-          local kitchens, refining my culinary skills, and one day, we decided
-          it was time to take a chance on our own place.
+          A List Liqour, Bar, and Restaurant is a distinguished establishment
+          located in the vibrant Thika Runda estate. Established in 2023, we
+          offer a comprehensive range of culinary, beverage, and retail services
+          designed to meet the discerning needs of our clientele.
         </p>
         <p>
-          We found a small corner space on a quiet street in 2010 and named it
-          Heirloom Kitchen—a tribute to the heritage that inspired my passion
-          for cooking. With limited money but big hopes, we started with just
-          six tables and an open kitchen. The menu was always changing, based on
-          whatever fresh ingredients I could find at the local markets.
+          Under the expert guidance of Vivian Injeshi and James Apollo, A List
+          Liqour, Bar, and Restaurant has quickly gained recognition for its
+          exceptional quality and service. Our restaurant features a
+          meticulously crafted menu of exquisite dishes, while our bar presents
+          a curated selection of premium spirits, wines, and beers.
         </p>
         <p>
-          Sarah, my wife, took care of the front of house while two local high
-          school students helped us with the rest. We knew it wouldn’t be easy,
-          but we were determined to make it work. At first, business was slow,
-          but word started to spread about our unique blend of tradition and
-          modern flavors.
+          Beyond our culinary and beverage offerings, we provide essential
+          retail services. Our butcher shop offers a variety of fresh,
+          high-quality meats, ensuring exceptional taste and value.
+          Additionally, our floral shop curates stunning arrangements for any
+          occasion, adding a touch of elegance to your special moments.
+        </p>
+        <p>
+          At A List Liqour, Bar, and Restaurant, we are dedicated to providing
+          an exceptional experience that combines culinary excellence, a
+          welcoming atmosphere, and exceptional value. We invite you to discover
+          the difference for yourself.
         </p>
       </div>
     </div>

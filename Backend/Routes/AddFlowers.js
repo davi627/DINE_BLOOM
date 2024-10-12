@@ -38,12 +38,53 @@ router.post('/addflowers', upload.single('img'), async (req, res) => {
   const imgPath = req.file.path; // Get the uploaded image path
 
   try {
-    const newFlower = new Flower({ name, price, available, img: imgPath, category: 'flower' });
+    const newFlower = new Flower({ name, price, available, img: imgPath });
     await newFlower.save();
     res.status(201).json({ message: 'Flower item added successfully', flower: newFlower });
   } catch (error) {
     console.error('Error adding flower item:', error);
     res.status(500).json({ message: 'Failed to add flower item' });
+  }
+});
+
+// Route to update flower availability
+router.put('/flowers/:id', async (req, res) => {
+  const { id } = req.params;
+  const { available } = req.body;
+
+  try {
+    const updatedFlower = await Flower.findByIdAndUpdate(
+      id,
+      { available },
+      { new: true } // Return the updated document
+    );
+
+    if (!updatedFlower) {
+      return res.status(404).json({ message: 'Flower not found' });
+    }
+
+    res.json({ message: 'Flower availability updated', flower: updatedFlower });
+  } catch (error) {
+    console.error('Error updating flower availability:', error);
+    res.status(500).json({ message: 'Failed to update flower availability' });
+  }
+});
+
+// Route to delete flower item
+router.delete('/flowers/:id', async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const deletedFlower = await Flower.findByIdAndDelete(id);
+
+    if (!deletedFlower) {
+      return res.status(404).json({ message: 'Flower not found' });
+    }
+
+    res.json({ message: 'Flower deleted successfully' });
+  } catch (error) {
+    console.error('Error deleting flower item:', error);
+    res.status(500).json({ message: 'Failed to delete flower item' });
   }
 });
 

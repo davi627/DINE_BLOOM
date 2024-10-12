@@ -1,6 +1,6 @@
 .topBar {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   background-color: #8c2730;
   padding: 10px 30px;
@@ -25,7 +25,20 @@
   opacity: 0;
 }
 
-.topBar li {
+.topBar .add-item {
+  margin-right: auto;
+}
+
+.topBar .hamburger {
+  display: none;
+  cursor: pointer;
+}
+
+.topBar .menu {
+  display: flex;
+}
+
+.topBar .menu li {
   margin-left: 20px;
   color: white;
   font-size: 20px;
@@ -34,11 +47,11 @@
   padding-bottom: 10px;
 }
 
-.topBar li:hover {
+.topBar .menu li:hover {
   text-decoration: none;
 }
 
-.topBar li::after {
+.topBar .menu li::after {
   content: '';
   position: absolute;
   width: 0;
@@ -49,21 +62,8 @@
   transition: width 0.3s ease;
 }
 
-.topBar li:hover::after {
+.topBar .menu li:hover::after {
   width: 100%;
-}
-
-.add-item {
-  margin-right: auto;
-}
-
-.add-item a {
-  display: flex;
-  align-items: center;
-}
-
-.add-item svg {
-  margin-right: 10px;
 }
 
 @media (max-width: 768px) {
@@ -72,12 +72,33 @@
     padding: 10px 20px;
   }
 
-  .topBar li {
-    font-size: 18px;
-    margin-left: 15px;
+  .topBar .menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: #8c2730;
+    width: 100%;
+    z-index: 9;
   }
 
-  .add-item svg {
+  .topBar .menu.open {
+    display: flex;
+  }
+
+  .topBar .menu li {
+    margin: 10px 0;
+    font-size: 18px;
+    margin-left: 0;
+  }
+
+  .topBar .hamburger {
+    display: flex;
+    margin-left: auto;
+  }
+
+  .topBar .add-item svg {
     width: 20px;
     height: 20px;
   }
@@ -91,13 +112,13 @@
     flex-wrap: wrap;
   }
 
-  .topBar li {
+  .topBar .menu li {
     font-size: 16px;
     margin: 5px 10px;
     padding-bottom: 5px;
   }
 
-  .topBar li::after {
+  .topBar .menu li::after {
     height: 2px;
   }
 }

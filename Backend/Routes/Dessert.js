@@ -1,6 +1,6 @@
 import express from 'express';
 import multer from 'multer';
-import { Desserts } from '../Model/Desserts.js';
+import { Desserts } from '../Model/Desserts.js'; // Adjust the path based on your project structure
 
 const router = express.Router();
 
@@ -44,6 +44,46 @@ router.post('/adddesserts', upload.single('img'), async (req, res) => {
   } catch (error) {
     console.error('Error adding dessert item:', error);
     res.status(500).json({ message: 'Failed to add dessert item' });
+  }
+});
+
+// Route to update dessert availability
+router.put('/desserts/:id', async (req, res) => {
+  const { id } = req.params;
+  const { available } = req.body;
+
+  try {
+    const updatedDessert = await Desserts.findByIdAndUpdate(
+      id,
+      { available },
+      { new: true } // Return the updated document
+    );
+    
+    if (!updatedDessert) {
+      return res.status(404).json({ message: 'Dessert not found' });
+    }
+
+    res.json({ message: 'Dessert availability updated', dessert: updatedDessert });
+  } catch (error) {
+    console.error('Error updating dessert availability:', error);
+    res.status(500).json({ message: 'Failed to update dessert availability' });
+  }
+});
+// Route to delete dessert item
+router.delete('/desserts/:id', async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const deletedDessert = await Desserts.findByIdAndDelete(id);
+    
+    if (!deletedDessert) {
+      return res.status(404).json({ message: 'Dessert not found' });
+    }
+
+    res.json({ message: 'Dessert deleted successfully' });
+  } catch (error) {
+    console.error('Error deleting dessert item:', error);
+    res.status(500).json({ message: 'Failed to delete dessert item' });
   }
 });
 

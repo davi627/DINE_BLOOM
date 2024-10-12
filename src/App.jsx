@@ -11,6 +11,10 @@ import AddFood from './Components/Add/AddFood';
 import AddDrinks from './Components/AddDrinks/AddDrinks';
 import AddDessert from './Components/AddDessert/AddDessert';
 import AddFlowers from './Components/AddFlowers/AddFlowers';
+import Product from './Components/Products/Product';
+import EditDrinks from './Components/EditDrinks/EditDrinks';
+import EditDesserts from './Components/EditDesserts/EditDesserts';
+import EditFlowers from './Components/EditFlowers/EditFlowers';
 
 function App() {
   return (
@@ -27,6 +31,10 @@ function App() {
           <Route path="/adddrinks" element={<AddDrinks />} />
           <Route path="/adddesserts" element={<AddDessert />} />
           <Route path="/addflowers" element={<AddFlowers />} />
+          <Route path="products" element={<Product />} />
+          <Route path="Edrinks" element={<EditDrinks />} />
+          <Route path="editdesserts" element={<EditDesserts />} />
+          <Route path="editflowers" element={<EditFlowers />} />
         </Routes>
       </div>
     </Router>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import { Link } from 'react-router-dom';
 import './AddFood.css';
 
 const AddFood = () => {
@@ -10,6 +10,7 @@ const AddFood = () => {
     available: true,
   });
   const [file, setFile] = useState(null);
+  const [menuOpen, setMenuOpen] = useState(false); // State for hamburger menu
 
   const handleChange = (e) => {
     setFoodData({ ...foodData, [e.target.name]: e.target.value });
@@ -43,23 +44,70 @@ const AddFood = () => {
 
   return (
     <div>
-      {/* Top bar outside the form container */}
       <div className="topbar">
-        <Link to="/addfood" className="nav-link">
-          Foods
-        </Link>
-        <Link to="/adddrinks" className="nav-link">
-          Drinks
-        </Link>
-        <Link to="/adddesserts" className="nav-link">
-          Desserts
-        </Link>
-        <Link to="/addflowers" className="nav-link">
-          Flowers
-        </Link>
+        <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
+          &#9776; {/* Hamburger icon */}
+        </div>
+        <nav className={`nav-links ${menuOpen ? 'open' : ''}`}>
+          <Link
+            to="/addfood"
+            className="nav-link"
+            onClick={() => setMenuOpen(false)}
+          >
+            Foods
+          </Link>
+          <Link
+            to="/adddrinks"
+            className="nav-link"
+            onClick={() => setMenuOpen(false)}
+          >
+            Drinks
+          </Link>
+          <Link
+            to="/adddesserts"
+            className="nav-link"
+            onClick={() => setMenuOpen(false)}
+          >
+            Desserts
+          </Link>
+          <Link
+            to="/addflowers"
+            className="nav-link"
+            onClick={() => setMenuOpen(false)}
+          >
+            Flowers
+          </Link>
+          <Link
+            to="/products"
+            className="nav-link"
+            onClick={() => setMenuOpen(false)}
+          >
+            Edit Meals
+          </Link>
+          <Link
+            to="/Edrinks"
+            className="nav-link"
+            onClick={() => setMenuOpen(false)}
+          >
+            Edit Drinks
+          </Link>
+          <Link
+            to="/editdesserts"
+            className="nav-link"
+            onClick={() => setMenuOpen(false)}
+          >
+            Edit Desserts
+          </Link>
+          <Link
+            to="/editflowers"
+            className="nav-link"
+            onClick={() => setMenuOpen(false)}
+          >
+            Edit Flowers
+          </Link>
+        </nav>
       </div>
 
-      {/* Form container below the top bar */}
       <div className="container">
         <form onSubmit={handleSubmit}>
           <label>

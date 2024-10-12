@@ -8,7 +8,7 @@ const Hero = () => {
     <div>
       <div className="hero">
         <img src={res} alt="Bloom" />
-        <h1>Dine & Bloom</h1>
+        <h1>A List Liqour, Bar, and Restaurant</h1>
         <div className="underline"></div> {/* Underline between h1 and p */}
         <p>
           Discover the magic of blooming flowers in your home
@@ -23,7 +23,15 @@ const Hero = () => {
         >
           <FaWhatsapp />
         </a>
-        <button className="order-button">Order Now</button>
+        <button
+          className="order-button"
+          onClick={() =>
+            (window.location.href =
+              'https://glovoapp.com/ke/en/thika/food-top-the-roaming-chef-thk/')
+          }
+        >
+          Order Now
+        </button>
       </div>
     </div>
   );

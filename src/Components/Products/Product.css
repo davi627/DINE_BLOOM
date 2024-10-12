@@ -1,0 +1,88 @@
+.product-container {
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.food-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.food-card {
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px;
+  width: 250px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.food-card:hover {
+  transform: scale(1.05);
+}
+
+.food-img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.food-details {
+  text-align: left;
+  margin-top: 12px;
+}
+
+.availability-btn,
+.delete-btn {
+  padding: 8px 12px;
+  margin: 8px 0;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.availability-btn.available {
+  background-color: #28a745;
+  color: white;
+}
+
+.availability-btn.not-available {
+  background-color: #dc3545;
+  color: white;
+}
+
+.delete-btn {
+  background-color: #f44336;
+  color: white;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 1200px) {
+  .food-card {
+    width: 45%;
+  }
+}
+
+@media (max-width: 800px) {
+  .food-card {
+    width: 90%;
+  }
+}
+
+@media (max-width: 500px) {
+  .food-card {
+    width: 100%;
+    margin: 8px 0;
+  }
+
+  .availability-btn,
+  .delete-btn {
+    width: 100%;
+    font-size: 16px;
+  }
+}

@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { FaPlus } from 'react-icons/fa'; // Import the plus icon from react-icons
+import { FaPlus, FaBars, FaTimes } from 'react-icons/fa'; // Import the icons
 import './TopBar.css';
 
 const TopBar = () => {
   const [showTopBar, setShowTopBar] = useState(true);
+  const [menuOpen, setMenuOpen] = useState(false); // State for hamburger menu
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,6 +24,10 @@ const TopBar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   return (
     <div className={`topBar ${showTopBar ? 'visible' : 'hidden'}`}>
       <li className="add-item">
@@ -30,18 +35,29 @@ const TopBar = () => {
           <FaPlus size={24} color="white" />
         </Link>
       </li>
-      <li>
-        <Link to="/fastfoods">Fast Foods</Link>
-      </li>
-      <li>
-        <Link to="/desserts">Desserts</Link>
-      </li>
-      <li>
-        <Link to="/drinks">Drinks</Link>
-      </li>
-      <li>
-        <Link to="/flowers">Meals & Flowers</Link>
-      </li>
+
+      <div className="hamburger" onClick={toggleMenu}>
+        {menuOpen ? (
+          <FaTimes size={24} color="white" />
+        ) : (
+          <FaBars size={24} color="white" />
+        )}
+      </div>
+
+      <ul className={`menu ${menuOpen ? 'open' : ''}`}>
+        <li>
+          <Link to="/fastfoods">Meals</Link>
+        </li>
+        <li>
+          <Link to="/desserts">Desserts</Link>
+        </li>
+        <li>
+          <Link to="/drinks">Drinks</Link>
+        </li>
+        <li>
+          <Link to="/flowers">Flowers</Link>
+        </li>
+      </ul>
     </div>
   );
 };

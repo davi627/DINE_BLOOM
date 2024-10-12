@@ -52,5 +52,28 @@ router.post('/adddrinks', upload.single('img'), async (req, res) => {
     res.status(500).json({ message: 'Failed to add drink item' });
   }
 });
+// Update drink availability
+router.put('/drinks/:id', async (req, res) => {
+  const { available } = req.body;
+  try {
+    const updatedDrink = await Drinks.findByIdAndUpdate(req.params.id, { available }, { new: true });
+    res.status(200).json(updatedDrink);
+  } catch (err) {
+    console.error('Error updating drink availability:', err);
+    res.status(500).json({ message: 'Failed to update drink availability' });
+  }
+});
+
+// Delete drink item
+router.delete('/drinks/:id', async (req, res) => {
+  try {
+    await Drinks.findByIdAndDelete(req.params.id);
+    res.status(200).json({ message: 'Drink item deleted successfully' });
+  } catch (err) {
+    console.error('Error deleting drink item:', err);
+    res.status(500).json({ message: 'Failed to delete drink item' });
+  }
+});
+
 
 export { router as DrinksRouter };
