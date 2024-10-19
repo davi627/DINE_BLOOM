@@ -66,7 +66,7 @@ const Product = () => {
                   food.available ? 'available' : 'not-available'
                 }`}
               >
-                {food.available ? 'Mark as Not Available' : 'Mark as Available'}
+                {food.available ? ' Not Available' : 'Available'}
               </button>
               <button
                 onClick={() => deleteFood(food._id)}

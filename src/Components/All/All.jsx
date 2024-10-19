@@ -67,10 +67,10 @@ const All = () => {
 
   return (
     <div>
-      <h1>Flowers</h1>
-      <div className="flower-gallery">
+      <h1 className="all-flowers-header">Flowers</h1>
+      <div className="all-flower-gallery">
         {flowerItems.map((flower) => (
-          <div key={flower._id} className="flower-card">
+          <div key={flower._id} className="all-flower-card">
             <img
               src={`http://localhost:3000/${flower.img}`}
               alt={flower.name}
@@ -91,8 +91,8 @@ const All = () => {
       </div>
 
       {selectedFlower && (
-        <div className="popup">
-          <div className="popup-content">
+        <div className="all-popup">
+          <div className="all-popup-content">
             <h3>Order {selectedFlower.name}</h3>
             <label>
               Quantity:
@@ -120,25 +120,31 @@ const All = () => {
       )}
 
       {showMpesaModal && (
-        <div className="mpesa-modal popup">
-          <div className="modal-content popup-content">
+        <div className="all-popup">
+          <div className="all-popup-content">
             <h3>Enter MPESA Number</h3>
             <p>Total Amount: {totalPrice} KES</p> {/* Display total price */}
             <input
               type="text"
               value={mpesaNumber}
               onChange={(e) => setMpesaNumber(e.target.value)}
-              placeholder="e.g 254745404934"
+              placeholder="e.g 254712345678"
             />
             <div className="buttons">
-              <button onClick={handleMpesaSubmit}>Submit</button>
-              <button onClick={() => setShowMpesaModal(false)}>Cancel</button>
+              <button className="checkout-btn" onClick={handleMpesaSubmit}>
+                Pay Now
+              </button>
+              <button
+                className="close-btn"
+                onClick={() => setShowMpesaModal(false)}
+              >
+                Cancel
+              </button>
             </div>
+            {paymentStatus && <p>{paymentStatus}</p>}
           </div>
         </div>
       )}
-
-      {paymentStatus && <p>{paymentStatus}</p>}
     </div>
   );
 };

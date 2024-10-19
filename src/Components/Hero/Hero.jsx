@@ -1,6 +1,6 @@
 import React from 'react';
 import './Hero.css';
-import res from '../../assets/res1.jpg';
+import res from '../../assets/res5.jpg';
 import { FaWhatsapp } from 'react-icons/fa';
 
 const Hero = () => {
@@ -9,12 +9,8 @@ const Hero = () => {
       <div className="hero">
         <img src={res} alt="Bloom" />
         <h1>A List Liqour, Bar, and Restaurant</h1>
-        <div className="underline"></div> {/* Underline between h1 and p */}
-        <p>
-          Discover the magic of blooming flowers in your home
-          <br />
-          Get a chance to get amazing foods on click of a button
-        </p>
+        <div className="underline"></div>
+        <h2> Once upon a Dream</h2>
         <a
           href="https://wa.me/0745404934"
           className="whatsapp-icon"

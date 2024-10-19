@@ -1,106 +1,58 @@
-.footer-container {
+.footer {
   background-color: #8c4318;
+  color: white;
   padding: 20px;
   text-align: center;
-  color: white;
-  height: auto;
-  border-top: 5px solid #d6a95c;
+  position: relative;
 }
 
-.footer-copyright {
-  margin-bottom: 10px;
-  font-size: 16px;
+.footer-text {
+  margin: 0 auto;
+  max-width: 1400px;
+  font-size: 1.8em;
+  line-height: 1.6;
 }
 
-.footer-links {
-  list-style: none;
-  padding: 0;
+.footer-line {
+  border: none;
+  border-bottom: 5px solid white;
+  width: 100%;
+  margin: 20px 0;
+}
+
+.footer-icons {
   display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin: 10px 0;
-}
-
-.footer-links li {
-  cursor: pointer;
-  transition: color 0.3s ease;
-}
-
-.footer-links li:hover {
-  color: #d6a95c;
-}
-
-.footer-developer {
-  margin-top: 15px;
-  font-size: 15px;
-}
-
-.footer-social-icons {
-  margin-top: 10px;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .footer-icon {
+  font-size: 1.5em;
   color: white;
-  text-decoration: none;
   transition: color 0.3s ease;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-icon span {
+  margin-top: 5px;
+  font-size: 0.9em;
 }
 
 .footer-icon:hover {
-  color: #d6a95c;
+  color: black;
 }
 
-.footer-phone {
-  margin-top: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.phone-number {
-  margin-left: 5px;
-  color: white;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.phone-number:hover {
-  color: #d6a95c;
-}
-
-@media (max-width: 768px) {
-  .footer-container {
-    padding: 15px;
-    text-align: center;
-  }
-
-  .footer-links {
+@media (max-width: 600px) {
+  .footer-icons {
     flex-direction: column;
-    gap: 10px;
   }
 
-  .footer-social-icons {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .footer-developer {
-    font-size: 14px;
-  }
-}
-
-@media (max-width: 480px) {
-  .footer-container {
-    padding: 10px;
-  }
-
-  .footer-links {
-    font-size: 14px;
-  }
-
-  .footer-developer {
-    font-size: 13px;
+  .footer-icon {
+    margin-bottom: 15px;
   }
 }

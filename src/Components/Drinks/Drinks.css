@@ -1,7 +1,7 @@
 /* Overall header styling */
 h1 {
   margin-left: 80px;
-  font-size: 2.5em;
+  font-size: 2.1em;
 }
 
 @media (max-width: 600px) {
@@ -12,7 +12,7 @@ h1 {
 }
 
 /* Food gallery layout */
-.food-gallery {
+.drinks-gallery {
   display: flex;
   flex-wrap: wrap;
   margin-left: 80px;
@@ -20,7 +20,7 @@ h1 {
 }
 
 @media (max-width: 600px) {
-  .food-gallery {
+  .drinks-gallery {
     margin-left: 10px;
     gap: 20px;
     justify-content: center;
@@ -28,31 +28,32 @@ h1 {
 }
 
 /* Individual food card styling */
-.food-card {
+.drinks-card {
   border: 1px solid #ddd;
   padding: 15px;
-  width: 400px;
+  width: 350px; /* Increased width */
+  height: 400px;
   text-align: center;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 @media (max-width: 600px) {
-  .food-card {
+  .drinks-card {
     width: 100%;
     padding: 10px;
   }
 }
 
 /* Image styling within the food card */
-.food-card img {
-  width: 100%;
-  height: auto;
+.drinks-card img {
+  width: 200px;
+  height: 150px;
   border-radius: 10px;
 }
 
 /* Button styling for food card */
-.food-card button {
+.drinks-card button {
   background-color: #007bff;
   color: white;
   border: none;
@@ -62,7 +63,7 @@ h1 {
   cursor: pointer;
 }
 
-.food-card button:disabled {
+.drinks-card button:disabled {
   background-color: #ccc;
   cursor: not-allowed;
 }

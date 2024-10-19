@@ -11,20 +11,26 @@
   object-fit: cover;
 }
 
-.hero h1,
-.hero p {
+.hero h2 {
   position: absolute;
-  color: rgba(255, 255, 255, 0.8);
+  color: white;
   text-align: center;
   width: 100%;
   left: 50%;
   transform: translateX(-50%);
+  font-size: 30px;
 }
 
 .hero h1 {
   top: 35%;
-  font-size: 3rem;
+  font-size: 5rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  position: absolute;
+  color: goldenrod;
+  text-align: center;
+  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .underline {
@@ -32,14 +38,14 @@
   top: 47%;
   left: 50%;
   transform: translateX(-50%);
-  width: 800px;
+  width: 1400px;
   height: 5px;
   background-color: rgba(255, 255, 255, 0.8);
 }
 
-.hero p {
+.hero h2 {
   top: 50%;
-  font-size: 2rem;
+  font-size: 4rem;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
   line-height: 1.5;
 }
@@ -49,7 +55,7 @@
   bottom: 20px;
   left: 450px;
   font-size: 3rem;
-  background-color: #8c2730;
+  background-color: black;
   color: white;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
   border-radius: 10px;
@@ -64,7 +70,7 @@
   bottom: 20px;
   right: 450px;
   padding: 10px 20px;
-  background-color: #8c2730;
+  background-color: black;
   color: white;
   border-radius: 5px;
   cursor: pointer;

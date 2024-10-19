@@ -1,80 +1,80 @@
 /* Overall header styling */
-h1 {
+.all-flowers-header {
   margin-left: 80px;
   font-size: 2.5em;
   color: #333;
 }
 
 @media (max-width: 600px) {
-  h1 {
-    margin-left: 20px; /* Reduce margin on small screens */
-    font-size: 1.8em; /* Adjust font size */
+  .all-flowers-header {
+    margin-left: 20px;
+    font-size: 1.8em;
   }
 }
 
 /* Flower gallery layout */
-.flower-gallery {
+.all-flower-gallery {
   display: flex;
   flex-wrap: wrap;
   margin-left: 80px;
-  gap: 40px; /* Space between cards */
+  gap: 40px;
 }
 
 @media (max-width: 600px) {
-  .flower-gallery {
-    margin-left: 10px; /* Reduce margin for small screens */
+  .all-flower-gallery {
+    margin-left: 10px;
     gap: 20px;
-    justify-content: center; /* Center cards on mobile */
+    justify-content: center;
   }
 }
 
 /* Individual flower card styling */
-.flower-card {
+.all-flower-card {
   border: 1px solid #ddd;
   padding: 15px;
-  width: 300px; /* Adjust the width of the card */
+  width: 350px;
+  height: 400px;
   text-align: center;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s; /* Smooth hover effect */
+  transition: transform 0.3s;
 }
 
-.flower-card:hover {
-  transform: translateY(-5px); /* Lift effect on hover */
+.all-flower-card:hover {
+  transform: translateY(-5px);
 }
 
 @media (max-width: 600px) {
-  .flower-card {
-    width: 100%; /* Make the cards take full width on mobile */
+  .all-flower-card {
+    width: 100%;
     padding: 10px;
+    height: auto;
   }
 }
 
-/* Image styling within the flower card */
-.flower-card img {
-  width: 100%;
-  height: auto;
+.all-flower-card img {
+  width: 300px;
+  height: 150px;
   border-radius: 10px;
 }
 
-/* Available/Not Available text styling */
-.flower-card p {
+.all-flower-card p {
   font-size: 1.1em;
   margin: 10px 0;
 }
 
-.flower-card p.available {
+.all-flower-card p.available {
   color: green;
   font-weight: bold;
 }
 
-.flower-card p.unavailable {
+.all-flower-card p.unavailable {
   color: red;
   font-weight: bold;
 }
 
 /* Button styling for ordering */
-.flower-card button {
+.all-flower-card button {
   background-color: #007bff;
   color: white;
   border: none;
@@ -86,17 +86,17 @@ h1 {
   transition: background-color 0.3s;
 }
 
-.flower-card button:hover {
+.all-flower-card button:hover {
   background-color: #0056b3; /* Darker blue on hover */
 }
 
-.flower-card button:disabled {
+.all-flower-card button:disabled {
   background-color: #ccc;
   cursor: not-allowed;
 }
 
 /* Popup styling */
-.popup {
+.all-popup {
   position: fixed;
   top: 0;
   left: 0;
@@ -108,7 +108,7 @@ h1 {
   align-items: center;
 }
 
-.popup-content {
+.all-popup-content {
   background: white;
   padding: 20px;
   border-radius: 10px;
@@ -117,29 +117,29 @@ h1 {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.popup-content h3 {
+.all-popup-content h3 {
   margin-bottom: 15px;
 }
 
-.popup-content input {
+.all-popup-content input {
   margin: 10px 0;
   padding: 8px;
   width: 50px;
 }
 
-.popup-content p {
+.all-popup-content p {
   font-weight: bold;
   margin: 15px 0;
 }
 
 /* Styling for buttons in the popup */
-.popup-content .buttons {
+.all-popup-content .buttons {
   display: flex;
   justify-content: space-around;
   margin-top: 20px;
 }
 
-.popup-content .buttons button {
+.all-popup-content .buttons button {
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
@@ -147,31 +147,31 @@ h1 {
   font-weight: bold;
 }
 
-.popup-content .checkout-btn {
+.all-popup-content .checkout-btn {
   background-color: orange;
   color: white;
 }
 
-.popup-content .close-btn {
+.all-popup-content .close-btn {
   background-color: brown;
   color: white;
 }
 
 /* Responsive adjustments for mobile devices */
 @media (max-width: 600px) {
-  .popup-content {
+  .all-popup-content {
     width: 90%; /* Make the popup content width flexible */
   }
 
-  .popup-content input {
+  .all-popup-content input {
     width: 40px; /* Reduce input size */
   }
 
-  .popup-content .buttons {
+  .all-popup-content .buttons {
     flex-direction: column; /* Stack buttons vertically */
   }
 
-  .popup-content .buttons button {
+  .all-popup-content .buttons button {
     margin-bottom: 10px; /* Add space between buttons */
   }
 }

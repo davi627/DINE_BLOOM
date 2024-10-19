@@ -64,7 +64,7 @@ const FastFood = () => {
 
   return (
     <div>
-      <h1>Foods</h1>
+      <h1>Meals</h1>
       <div className="food-gallery">
         {foodItems.map((food) => (
           <div key={food._id} className="food-card">

@@ -67,7 +67,7 @@ const Drinks = () => {
       <h1>Drinks</h1>
       <div className="food-gallery">
         {drinksItems.map((drinks) => (
-          <div key={drinks._id} className="food-card">
+          <div key={drinks._id} className="drinks-card">
             <img
               src={`http://localhost:3000/${drinks.img}`}
               alt={drinks.name}

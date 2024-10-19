@@ -105,6 +105,11 @@ const AddFood = () => {
           >
             Edit Flowers
           </Link>
+          <Link
+            to="/logout"
+            className="nav-link"
+            onClick={() => setMenuOpen(false)}
+          ></Link>
         </nav>
       </div>
 

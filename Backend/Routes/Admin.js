@@ -9,8 +9,8 @@ const JWT_SECRET = process.env.JWT_SECRET ||"jwttokenkey"
 
 // Predefined admin credentials
 const predefinedAdmin = {
-  email: 'davidmbita001@gmail.com',  
-  password: 'admin123'        
+  email: 'apollobinary1@gmail.com',  
+  password: 'admin1234'        
 };
 
 // Function to create the predefined admin if not already created
